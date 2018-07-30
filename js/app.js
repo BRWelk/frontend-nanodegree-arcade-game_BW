@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(x, y) {
+    constructor(x, y, speed) {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
@@ -9,8 +9,8 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png';
         this.x = x;
         this.y = y;
-        this.speed = Math.floor(Math.random() * 3 +
-        2);
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
     }
 
     // Update the enemy's position, required method for game
@@ -18,11 +18,12 @@ class Enemy {
     update(dt) {
         this.x += this.x + this.speed;
         if(this.x > 500) {
-          this.x = -100;
+          this.x = 20;
         }
         // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
+
 
     }
 
@@ -85,7 +86,13 @@ function checkCollisions() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-const allEnemies = [];
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
 const player = new Player();
 
 
