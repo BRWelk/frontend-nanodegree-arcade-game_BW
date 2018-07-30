@@ -56,16 +56,24 @@ class Player {
     handleInput(playerInput) {
         if ('left' === playerInput) {
             this.x -= this.speed * this.xScale;
-            console.log(this.speed);
+            if (this.x <= 0) {
+                this.x += this.speed * this.xScale;
+            }
         }
         if ('right' === playerInput) {
             this.x += this.speed * this.xScale;
+            if (this.x > 400) {
+                this.x -= this.speed * this.xScale;
+            }
         }
         if ('up' === playerInput) {
             this.y -= this.speed;
         }
         if ('down' === playerInput) {
             this.y += this.speed;
+            if (this.y > 400) {
+                this.y -= this.speed;
+            }
         }
     }
 
