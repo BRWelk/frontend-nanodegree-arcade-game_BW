@@ -9,18 +9,19 @@ class Enemy {
         this.sprite = 'images/enemy-bug.png';
         this.x = x;
         this.y = y;
-        this.speed = Math.floor(Math.random() * 500) +
-        100;
-    }
+        this.speed = speed;
+        }
+
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        this.x += this.x + this.speed;
-        if(this.x > 500) {
-          this.x = 20;
-        }
-        // You should multiply any movement by the dt parameter
+        this.speed = Math.floor(Math.random() * 100) + 100;
+        this.x += this.speed * dt;
+         if (this.x > 505) {
+             this.x = -100;
+         }
+            // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
 
@@ -87,11 +88,20 @@ function checkCollisions() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
+
+let bug1 = new Enemy(0, 60);
+let bug2 = new Enemy(-150, 140);
+let bug3 = new Enemy(-450, 220);
+//let bug4 = new Enemy(-405, 140, 300);
+//let bug5 = new Enemy(-330, 220, 25);
+//let bug6 = new Enemy(-225, 60, 100);
+
+
+
+
 
 const allEnemies = [bug1, bug2, bug3];
+
 
 const player = new Player();
 
