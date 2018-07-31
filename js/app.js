@@ -1,26 +1,27 @@
+//***Start screen to chose player, level and start button*** BW
+
 // Enemies our player must avoid
 class Enemy {
-    constructor(x, y, speed) {
+    constructor(y, speed) {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
-        this.x = x;
+        this.x = -100;
         this.y = y;
         this.speed = speed;
-        }
-
+        this.speed = Math.floor(Math.random() * 250) + 100;
+    }
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        this.speed = Math.floor(Math.random() * 100) + 100;
-        this.x += this.speed * dt;
+this.x += this.speed * dt;
          if (this.x > 505) {
-             this.x = -100;
-         }
+            this.x = -100;
+            }
             // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
@@ -85,25 +86,29 @@ function checkCollisions() {
 
 }
 // Now instantiate your objects.
+// ***Place array for gems and secret treasure BW***
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+/*need to add levels to change speeds, add bugs and gems.  BW*/
+
+let bug1 = new Enemy(60 );
+let bug2 = new Enemy(140);
+let bug3 = new Enemy(220);
+let bug4 = new Enemy(140, 300);
+let bug5 = new Enemy(220, 25);
+let bug6 = new Enemy(60, 100);
 
 
-let bug1 = new Enemy(0, 60);
-let bug2 = new Enemy(-150, 140);
-let bug3 = new Enemy(-450, 220);
-//let bug4 = new Enemy(-405, 140, 300);
-//let bug5 = new Enemy(-330, 220, 25);
-//let bug6 = new Enemy(-225, 60, 100);
 
 
-
-
-
+//***need to add .push to add bugs at different levels*** BW
 const allEnemies = [bug1, bug2, bug3];
 
-
+//***add player choice at start screen*** BW
 const player = new Player();
+//***add header for score, lives and level
+
+
 
 
 // This listens for key presses and sends the keys to your
