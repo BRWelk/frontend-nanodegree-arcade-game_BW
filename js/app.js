@@ -16,9 +16,7 @@ class Enemy {
     }
 
     reset() {
-        const startPos = this.enemyX[0];
-
-        this.x = startPos;
+        this.x = this.enemyX[0];
         this.y = this.getRandomY();
         this.speed = this.getRandomSpeed();
     }
@@ -61,16 +59,23 @@ class Enemy {
 // a handleInput() method.
 class Player {
     constructor() {
-        this.xRange = [-2, 402];
-        this.yRange = [-20, 380];
+        this.playerX = [-2, 250, 402];
+        this.playerY = [0, 415];
         this.sprite = 'images/char-boy.png';
-
-
     }
+
+    reset() {
+        this.x = this.playerX[1];
+        this.y = this.playerY[1];
+        this.speed = this.getRandomSpeed();
+    }
+
+
     update(dt) {
-          if(this.y < 0) {
-          this.y = 395;
-          this.x = 200;
+      const min_Y = this.playerY[0];
+      this.y += this.speed * dt;
+       if (this.y < min_Y) {
+          this.reset();
         }
     }
     render() {
