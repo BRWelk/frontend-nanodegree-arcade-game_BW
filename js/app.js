@@ -2,25 +2,34 @@
 
 // Enemies our player must avoid
 class Enemy {
-    constructor(y, speed) {
+    constructor() {
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
-        this.x = -100;
-        this.y = y;
-        this.speed = speed;
-        this.speed = Math.floor(Math.random() * 250) + 100;
+        this.enemyX = [-150, 500];
+        this.enemyY = [60, 140, 220];
+        this.varSpeed = [100, 300];
+        this.reset();
+    }
+
+    reset() {
+        const startPos = this.enemyX[0];
+
+        this.x = startPos;
+        this.y = this.getRandomY();
+        this.speed = this.getRandomSpeed();
     }
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-this.x += this.speed * dt;
-         if (this.x > 505) {
-            this.x = -100;
+        const max_X = this.enemyX[1];
+        this.x += this.speed * dt;
+         if (this.x > max_X) {
+            this.reset();
             }
             // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
@@ -33,18 +42,29 @@ this.x += this.speed * dt;
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-}
+
+    getRandomY() {
+            return this.enemyY[Math.floor(Math.random() * this.enemyY.length)];
+    }
+
+    getRandomSpeed() {
+            const minSpeed = this.varSpeed[0];
+            const maxSpeed = this.varSpeed[1];
+
+            return Math.floor(Math.random() * (maxSpeed - minSpeed) + minSpeed);
+        }
+    }
+
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
 class Player {
-    constructor(x = 200, y = 395, speed = 83) {
-        this.xScale = 1.2;
-        this.x = x;
-        this.y = y;
-        this.speed = speed;
+    constructor() {
+        this.xRange = [-2, 402];
+        this.yRange = [-20, 380];
         this.sprite = 'images/char-boy.png';
+
 
     }
     update(dt) {
@@ -81,22 +101,25 @@ class Player {
     }
 
 }
-
 function checkCollisions() {
 
-}
+     }
+
+
+
 // Now instantiate your objects.
 // ***Place array for gems and secret treasure BW***
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 /*need to add levels to change speeds, add bugs and gems.  BW*/
 
-let bug1 = new Enemy(60 );
-let bug2 = new Enemy(140);
-let bug3 = new Enemy(220);
-let bug4 = new Enemy(140, 300);
-let bug5 = new Enemy(220, 25);
-let bug6 = new Enemy(60, 100);
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+const bug4 = new Enemy();
+const bug5 = new Enemy();
+const bug6 = new Enemy();
+
 
 
 
