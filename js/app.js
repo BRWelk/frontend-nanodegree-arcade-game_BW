@@ -12,10 +12,10 @@ class Enemy {
         this.enemyX = [-150, 500];
         this.enemyY = [60, 140, 220];
         this.varSpeed = [100, 300];
-        this.reset();
+        this.enemyReset();
     }
 
-    reset() {
+    enemyReset() {
         this.x = this.enemyX[0];
         this.y = this.getRandomY();
         this.speed = this.getRandomSpeed();
@@ -27,7 +27,7 @@ class Enemy {
         const max_X = this.enemyX[1];
         this.x += this.speed * dt;
          if (this.x > max_X) {
-            this.reset();
+            this.enemyReset();
             }
             // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
@@ -60,22 +60,24 @@ class Enemy {
 class Player {
     constructor() {
         this.playerX = [-2, 250, 402];
-        this.playerY = [0, 415];
+        this.playerY = [100, 415];
         this.sprite = 'images/char-boy.png';
+        this.playerSpeed = [83, 100];
+        this.playerReset();
     }
 
-    reset() {
+    playerReset() {
         this.x = this.playerX[1];
         this.y = this.playerY[1];
-        this.speed = this.getRandomSpeed();
+        this.speed = this.playerSpeed[1];
     }
 
 
     update(dt) {
       const min_Y = this.playerY[0];
       this.y += this.speed * dt;
-       if (this.y < min_Y) {
-          this.reset();
+       if (this.y > min_Y) {
+          this.playerReset();
         }
     }
     render() {
@@ -107,7 +109,9 @@ class Player {
 
 }
 function checkCollisions() {
-
+  if (this.enemyX === this.playerX || this.enemyY === this.playY){
+    return this.playerReset;
+  }
      }
 
 
