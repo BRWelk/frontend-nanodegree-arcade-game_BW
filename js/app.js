@@ -3,7 +3,13 @@ const level = 1;
 // Enemies our player must avoid
 class Enemy {
 <<<<<<< HEAD
+<<<<<<< HEAD
     constructor() {
+||||||| 6ba337a... instantiated allEnemies and Player
+    constructor(x, y, speed) {
+=======
+    constructor(x, y) {
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
 ||||||| 6ba337a... instantiated allEnemies and Player
     constructor(x, y, speed) {
 =======
@@ -40,11 +46,19 @@ class Enemy {
 ||||||| 6ba337a... instantiated allEnemies and Player
         this.x = x;
         this.y = y;
+<<<<<<< HEAD
         this.speed = Math.floor(Math.random() * 500) +
         100;
 =======
         this.x = x;
         this.y = y;
+        this.speed = Math.floor(Math.random() * 3 +
+        2);
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
+=======
         this.speed = Math.floor(Math.random() * 3 +
         2);
 >>>>>>> parent of 6ba337a... instantiated allEnemies and Player
@@ -64,7 +78,7 @@ class Enemy {
 ||||||| 6ba337a... instantiated allEnemies and Player
         this.x += this.x + this.speed;
         if(this.x > 500) {
-          this.x = 20;
+          this.x = -100;
         }
         // You should multiply any movement by the dt parameter
 =======
@@ -156,6 +170,7 @@ function checkCollisions() {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*need to add levels to change speeds, add bugs and gems.  BW*/
 
 const bug1 = new Enemy();
@@ -186,6 +201,17 @@ function max_X() {
 
 
 //***add player choice at start screen*** BW
+||||||| 6ba337a... instantiated allEnemies and Player
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
+=======
+const allEnemies = [];
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
 ||||||| 6ba337a... instantiated allEnemies and Player
 
 const bug1 = new Enemy();
