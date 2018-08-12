@@ -148,41 +148,25 @@ class Player {
     }
     handleInput(playerInput) {
         if ('left' === playerInput) {
-<<<<<<< HEAD
             this.x -= this.speed /* this.xScale;*/
             if (this.x <= 0) {
                 this.x += this.speed /* this.xScale;*/
             }
-||||||| 3f0929b... Fixed left, right and bottom border limits
-            this.x -= this.speed * this.xScale;
-            if (this.x <= 0) {
-                this.x += this.speed * this.xScale;
-            }
-=======
-            this.x -= this.speed * this.xScale;
-            console.log(this.speed);
->>>>>>> parent of 3f0929b... Fixed left, right and bottom border limits
         }
         if ('right' === playerInput) {
-<<<<<<< HEAD
             this.x += this.speed; /* this.xScale;*/
             if (this.x > 400) {
                 this.x -= this.speed; /* this.xScale;*/
             }
-||||||| 3f0929b... Fixed left, right and bottom border limits
-            this.x += this.speed * this.xScale;
-            if (this.x > 400) {
-                this.x -= this.speed * this.xScale;
-            }
-=======
-            this.x += this.speed * this.xScale;
->>>>>>> parent of 3f0929b... Fixed left, right and bottom border limits
         }
         if ('up' === playerInput) {
             this.y -= this.speed;
         }
         if ('down' === playerInput) {
             this.y += this.speed;
+            if (this.y > 400) {
+                this.y -= this.speed;
+            }
         }
     }
 
