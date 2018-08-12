@@ -2,7 +2,45 @@
 const level = 1;
 // Enemies our player must avoid
 class Enemy {
+<<<<<<< HEAD
+||||||| 08b4c71... Revert "instantiated allEnemies and Player"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
     constructor() {
+<<<<<<< HEAD
+||||||| 08b4c71... Revert "instantiated allEnemies and Player"
+||||||| 6ba337a... instantiated allEnemies and Player
+    constructor(x, y, speed) {
+=======
+    constructor(x, y) {
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+    constructor(x, y, speed) {
+=======
+    constructor(x, y) {
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+    constructor(x, y, speed) {
+=======
+    constructor(x, y) {
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+=======
+||||||| 6ba337a... instantiated allEnemies and Player
+    constructor(x, y, speed) {
+=======
+    constructor(x, y) {
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+    constructor(x, y, speed) {
+=======
+    constructor(x, y) {
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+>>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
@@ -30,6 +68,56 @@ class Enemy {
         this.x = this.enemyX[0];
         this.y = this.getRandomY();
         this.speed = this.getRandomSpeed();
+<<<<<<< HEAD
+||||||| 08b4c71... Revert "instantiated allEnemies and Player"
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.x = x;
+        this.y = y;
+<<<<<<< HEAD
+<<<<<<< HEAD
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
+=======
+        this.x = x;
+        this.y = y;
+        this.speed = Math.floor(Math.random() * 3 +
+        2);
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
+=======
+        this.speed = Math.floor(Math.random() * 3 +
+        2);
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
+=======
+        this.speed = Math.floor(Math.random() * 3 +
+        2);
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+=======
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.x = x;
+        this.y = y;
+<<<<<<< HEAD
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
+=======
+        this.x = x;
+        this.y = y;
+        this.speed = Math.floor(Math.random() * 3 +
+        2);
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
+=======
+        this.speed = Math.floor(Math.random() * 3 +
+        2);
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+>>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
     }
 
     // Update the enemy's position, required method for game
@@ -124,6 +212,15 @@ function checkCollisions() {
 // ***Place array for gems and secret treasure BW***
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+<<<<<<< HEAD
+||||||| 08b4c71... Revert "instantiated allEnemies and Player"
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
 /*need to add levels to change speeds, add bugs and gems.  BW*/
 
 const bug1 = new Enemy();
@@ -154,6 +251,65 @@ function max_X() {
 
 
 //***add player choice at start screen*** BW
+<<<<<<< HEAD
+||||||| 08b4c71... Revert "instantiated allEnemies and Player"
+||||||| 6ba337a... instantiated allEnemies and Player
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
+=======
+const allEnemies = [];
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
+=======
+const allEnemies = [];
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
+=======
+const allEnemies = [];
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+=======
+||||||| 6ba337a... instantiated allEnemies and Player
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
+=======
+const allEnemies = [];
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+||||||| 6ba337a... instantiated allEnemies and Player
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
+=======
+const allEnemies = [];
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
+>>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
 const player = new Player();
 //***add header for score, lives and level
 
