@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 //***Start screen to chose player, level and start button*** BW
 const level = 1;
+||||||| bd64fb6... Working with random speed
+//***Start screen to chose player, level and start button*** BW
+
+=======
+>>>>>>> parent of bd64fb6... Working with random speed
 // Enemies our player must avoid
 class Enemy {
+<<<<<<< HEAD
 <<<<<<< HEAD
 ||||||| 08b4c71... Revert "instantiated allEnemies and Player"
 <<<<<<< HEAD
@@ -41,12 +48,18 @@ class Enemy {
     constructor(x, y) {
 >>>>>>> parent of 6ba337a... instantiated allEnemies and Player
 >>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
+||||||| bd64fb6... Working with random speed
+    constructor(y, speed) {
+=======
+    constructor(x, y, speed) {
+>>>>>>> parent of bd64fb6... Working with random speed
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
+<<<<<<< HEAD
         this.enemyX = [-150, 500];
         this.enemyY = [60, 140, 220];
         this.varSpeed = [100, 300];
@@ -106,7 +119,13 @@ class Enemy {
         100;
 =======
         this.x = x;
+||||||| bd64fb6... Working with random speed
+        this.x = -100;
+=======
+        this.x = x;
+>>>>>>> parent of bd64fb6... Working with random speed
         this.y = y;
+<<<<<<< HEAD
         this.speed = Math.floor(Math.random() * 3 +
         2);
 >>>>>>> parent of 6ba337a... instantiated allEnemies and Player
@@ -119,10 +138,20 @@ class Enemy {
 >>>>>>> parent of 6ba337a... instantiated allEnemies and Player
 >>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
     }
+||||||| bd64fb6... Working with random speed
+        this.speed = speed;
+        this.speed = Math.floor(Math.random() * 250) + 100;
+    }
+=======
+        this.speed = speed;
+        }
+
+>>>>>>> parent of bd64fb6... Working with random speed
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
+<<<<<<< HEAD
         let max_X = this.enemyX[1];
         let max_Y = this.allEnemies;
         this.x += this.speed * dt;
@@ -130,6 +159,20 @@ class Enemy {
              if (this.y < max_Y)
             this.enemyReset();
         }     // You should multiply any movement by the dt parameter
+||||||| bd64fb6... Working with random speed
+this.x += this.speed * dt;
+         if (this.x > 505) {
+            this.x = -100;
+            }
+            // You should multiply any movement by the dt parameter
+=======
+        this.speed = Math.floor(Math.random() * 100) + 100;
+        this.x += this.speed * dt;
+         if (this.x > 505) {
+             this.x = -100;
+         }
+            // You should multiply any movement by the dt parameter
+>>>>>>> parent of bd64fb6... Working with random speed
         // which will ensure the game runs at the same speed for
         // all computers.
 
@@ -209,9 +252,9 @@ function checkCollisions() {
 
 
 // Now instantiate your objects.
-// ***Place array for gems and secret treasure BW***
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+<<<<<<< HEAD
 <<<<<<< HEAD
 ||||||| 08b4c71... Revert "instantiated allEnemies and Player"
 <<<<<<< HEAD
@@ -222,7 +265,12 @@ function checkCollisions() {
 <<<<<<< HEAD
 >>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
 /*need to add levels to change speeds, add bugs and gems.  BW*/
+||||||| bd64fb6... Working with random speed
+/*need to add levels to change speeds, add bugs and gems.  BW*/
+=======
+>>>>>>> parent of bd64fb6... Working with random speed
 
+<<<<<<< HEAD
 const bug1 = new Enemy();
 const bug2 = new Enemy();
 const bug3 = new Enemy();
@@ -230,13 +278,27 @@ const bug4 = new Enemy();
 const bug5 = new Enemy();
 const bug6 = new Enemy();
 
+||||||| bd64fb6... Working with random speed
+let bug1 = new Enemy(60 );
+let bug2 = new Enemy(140);
+let bug3 = new Enemy(220);
+let bug4 = new Enemy(140, 300);
+let bug5 = new Enemy(220, 25);
+let bug6 = new Enemy(60, 100);
+=======
+>>>>>>> parent of bd64fb6... Working with random speed
+
+let bug1 = new Enemy(0, 60);
+let bug2 = new Enemy(-150, 140);
+let bug3 = new Enemy(-450, 220);
+//let bug4 = new Enemy(-405, 140, 300);
+//let bug5 = new Enemy(-330, 220, 25);
+//let bug6 = new Enemy(-225, 60, 100);
 
 
 
 
-//***need to add .push to add bugs at different levels*** BW
-const allEnemies = [bug1, bug2, bug3];
-
+<<<<<<< HEAD
 
 function max_X() {
     for(const enemy_Y of allEnemies) {
@@ -312,8 +374,17 @@ const allEnemies = [];
 >>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
 const player = new Player();
 //***add header for score, lives and level
+||||||| bd64fb6... Working with random speed
+//***add player choice at start screen*** BW
+const player = new Player();
+//***add header for score, lives and level
+=======
+>>>>>>> parent of bd64fb6... Working with random speed
+
+const allEnemies = [bug1, bug2, bug3];
 
 
+const player = new Player();
 
 
 // This listens for key presses and sends the keys to your
