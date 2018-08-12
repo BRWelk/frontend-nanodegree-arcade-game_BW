@@ -2,13 +2,20 @@
 const level = 1;
 // Enemies our player must avoid
 class Enemy {
+<<<<<<< HEAD
     constructor() {
+||||||| 6ba337a... instantiated allEnemies and Player
+    constructor(x, y, speed) {
+=======
+    constructor(x, y) {
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
         // Variables applied to each of our instances go here,
         // we've provided one for you to get started
 
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
+<<<<<<< HEAD
         this.enemyX = [-150, 500];
         this.enemyY = [60, 140, 220];
         this.varSpeed = [100, 300];
@@ -30,11 +37,23 @@ class Enemy {
         this.x = this.enemyX[0];
         this.y = this.getRandomY();
         this.speed = this.getRandomSpeed();
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.x = x;
+        this.y = y;
+        this.speed = Math.floor(Math.random() * 500) +
+        100;
+=======
+        this.x = x;
+        this.y = y;
+        this.speed = Math.floor(Math.random() * 3 +
+        2);
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
     }
 
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
+<<<<<<< HEAD
         let max_X = this.enemyX[1];
         let max_Y = this.allEnemies;
         this.x += this.speed * dt;
@@ -42,9 +61,21 @@ class Enemy {
              if (this.y < max_Y)
             this.enemyReset();
         }     // You should multiply any movement by the dt parameter
+||||||| 6ba337a... instantiated allEnemies and Player
+        this.x += this.x + this.speed;
+        if(this.x > 500) {
+          this.x = 20;
+        }
+        // You should multiply any movement by the dt parameter
+=======
+        this.x += this.x + this.speed;
+        if(this.x > 500) {
+          this.x = -100;
+        }
+        // You should multiply any movement by the dt parameter
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
         // which will ensure the game runs at the same speed for
         // all computers.
-
 
     }
 
@@ -124,6 +155,7 @@ function checkCollisions() {
 // ***Place array for gems and secret treasure BW***
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
+<<<<<<< HEAD
 /*need to add levels to change speeds, add bugs and gems.  BW*/
 
 const bug1 = new Enemy();
@@ -154,6 +186,17 @@ function max_X() {
 
 
 //***add player choice at start screen*** BW
+||||||| 6ba337a... instantiated allEnemies and Player
+
+const bug1 = new Enemy();
+const bug2 = new Enemy();
+const bug3 = new Enemy();
+
+const allEnemies = [bug1, bug2, bug3];
+
+=======
+const allEnemies = [];
+>>>>>>> parent of 6ba337a... instantiated allEnemies and Player
 const player = new Player();
 //***add header for score, lives and level
 
