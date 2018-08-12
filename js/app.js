@@ -1,5 +1,5 @@
 //***Start screen to chose player, level and start button*** BW
-
+const level = 1;
 // Enemies our player must avoid
 class Enemy {
     constructor() {
@@ -15,6 +15,17 @@ class Enemy {
         this.enemyReset();
     }
 
+    getRandomY() {
+            return this.enemyY[Math.floor(Math.random() * this.enemyY.length)];
+    }
+
+    getRandomSpeed() {
+            const minSpeed = this.varSpeed[0];
+            const maxSpeed = this.varSpeed[1];
+
+            return Math.floor(Math.random() * (maxSpeed - minSpeed) + minSpeed);
+        }
+
     enemyReset() {
         this.x = this.enemyX[0];
         this.y = this.getRandomY();
@@ -24,12 +35,13 @@ class Enemy {
     // Update the enemy's position, required method for game
     // Parameter: dt, a time delta between ticks
     update(dt) {
-        const max_X = this.enemyX[1];
+        let max_X = this.enemyX[1];
+        let max_Y = this.allEnemies;
         this.x += this.speed * dt;
          if (this.x > max_X) {
+             if (this.y < max_Y)
             this.enemyReset();
-            }
-            // You should multiply any movement by the dt parameter
+        }     // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
 
@@ -41,16 +53,6 @@ class Enemy {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
 
-    getRandomY() {
-            return this.enemyY[Math.floor(Math.random() * this.enemyY.length)];
-    }
-
-    getRandomSpeed() {
-            const minSpeed = this.varSpeed[0];
-            const maxSpeed = this.varSpeed[1];
-
-            return Math.floor(Math.random() * (maxSpeed - minSpeed) + minSpeed);
-        }
     }
 
 
@@ -59,41 +61,43 @@ class Enemy {
 // a handleInput() method.
 class Player {
     constructor() {
-        this.playerX = [-2, 250, 402];
-        this.playerY = [100, 415];
+        this.playerX = [250, 402];
+        this.playerY = [0, 400];
         this.sprite = 'images/char-boy.png';
         this.playerSpeed = [83, 100];
         this.playerReset();
     }
 
     playerReset() {
-        this.x = this.playerX[1];
+        this.x = this.playerX[0];
         this.y = this.playerY[1];
-        this.speed = this.playerSpeed[1];
+
     }
 
 
     update(dt) {
       const min_Y = this.playerY[0];
+
       this.y += this.speed * dt;
-       if (this.y > min_Y) {
+       if (this.y <= min_Y) {
           this.playerReset();
         }
     }
+
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
     handleInput(playerInput) {
         if ('left' === playerInput) {
-            this.x -= this.speed * this.xScale;
+            this.x -= this.speed /* this.xScale;*/
             if (this.x <= 0) {
-                this.x += this.speed * this.xScale;
+                this.x += this.speed /* this.xScale;*/
             }
         }
         if ('right' === playerInput) {
-            this.x += this.speed * this.xScale;
+            this.x += this.speed; /* this.xScale;*/
             if (this.x > 400) {
-                this.x -= this.speed * this.xScale;
+                this.x -= this.speed; /* this.xScale;*/
             }
         }
         if ('up' === playerInput) {
@@ -109,10 +113,10 @@ class Player {
 
 }
 function checkCollisions() {
-  if (this.enemyX === this.playerX || this.enemyY === this.playY){
-    return this.playerReset;
+  //if (this.enemyX === this.playerX && this.enemyY === this.playY){
+    //this.playerReset;
   }
-     }
+
 
 
 
@@ -135,6 +139,19 @@ const bug6 = new Enemy();
 
 //***need to add .push to add bugs at different levels*** BW
 const allEnemies = [bug1, bug2, bug3];
+
+
+function max_X() {
+    for(const enemy_Y of allEnemies) {
+      return enemy_Y;
+    }
+    if (enemy_Y > 2){
+        this.playerReset;
+    }
+
+}
+
+
 
 //***add player choice at start screen*** BW
 const player = new Player();
