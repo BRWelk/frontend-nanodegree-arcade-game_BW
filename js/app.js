@@ -5,7 +5,7 @@ class Enemy {
             // Variables applied to each of our //instances go here,
             this.x = x;
             this.y = y
-            this.speed = 100 + Math.floor(Math.random() * 250);
+            this.speed = 100 + Math.floor(Math.random() * 350);
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
