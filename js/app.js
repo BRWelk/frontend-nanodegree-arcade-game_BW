@@ -1,395 +1,141 @@
-<<<<<<< HEAD
-//***Start screen to chose player, level and start button*** BW
-const level = 1;
-||||||| bd64fb6... Working with random speed
-//***Start screen to chose player, level and start button*** BW
 
-=======
->>>>>>> parent of bd64fb6... Working with random speed
 // Enemies our player must avoid
 class Enemy {
-<<<<<<< HEAD
-<<<<<<< HEAD
-||||||| 08b4c71... Revert "instantiated allEnemies and Player"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
-    constructor() {
-<<<<<<< HEAD
-||||||| 08b4c71... Revert "instantiated allEnemies and Player"
-||||||| 6ba337a... instantiated allEnemies and Player
-    constructor(x, y, speed) {
-=======
     constructor(x, y) {
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-    constructor(x, y, speed) {
-=======
-    constructor(x, y) {
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-    constructor(x, y, speed) {
-=======
-    constructor(x, y) {
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-=======
-||||||| 6ba337a... instantiated allEnemies and Player
-    constructor(x, y, speed) {
-=======
-    constructor(x, y) {
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-    constructor(x, y, speed) {
-=======
-    constructor(x, y) {
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
->>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
-||||||| bd64fb6... Working with random speed
-    constructor(y, speed) {
-=======
-    constructor(x, y, speed) {
->>>>>>> parent of bd64fb6... Working with random speed
-        // Variables applied to each of our instances go here,
+            // Variables applied to each of our //instances go here,
+            this.x = x;
+            this.y = y
+            this.speed = 100 + Math.floor(Math.random() * 250);
         // we've provided one for you to get started
-
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = 'images/enemy-bug.png';
-<<<<<<< HEAD
-        this.enemyX = [-150, 500];
-        this.enemyY = [60, 140, 220];
-        this.varSpeed = [100, 300];
-        this.enemyReset();
     }
-
-    getRandomY() {
-            return this.enemyY[Math.floor(Math.random() * this.enemyY.length)];
-    }
-
-    getRandomSpeed() {
-            const minSpeed = this.varSpeed[0];
-            const maxSpeed = this.varSpeed[1];
-
-            return Math.floor(Math.random() * (maxSpeed - minSpeed) + minSpeed);
-        }
-
-    enemyReset() {
-        this.x = this.enemyX[0];
-        this.y = this.getRandomY();
-        this.speed = this.getRandomSpeed();
-<<<<<<< HEAD
-||||||| 08b4c71... Revert "instantiated allEnemies and Player"
-||||||| 6ba337a... instantiated allEnemies and Player
-        this.x = x;
-        this.y = y;
-<<<<<<< HEAD
-<<<<<<< HEAD
-        this.speed = Math.floor(Math.random() * 500) +
-        100;
-=======
-        this.x = x;
-        this.y = y;
-        this.speed = Math.floor(Math.random() * 3 +
-        2);
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-        this.speed = Math.floor(Math.random() * 500) +
-        100;
-=======
-        this.speed = Math.floor(Math.random() * 3 +
-        2);
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-        this.speed = Math.floor(Math.random() * 500) +
-        100;
-=======
-        this.speed = Math.floor(Math.random() * 3 +
-        2);
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-=======
-||||||| 6ba337a... instantiated allEnemies and Player
-        this.x = x;
-        this.y = y;
-<<<<<<< HEAD
-        this.speed = Math.floor(Math.random() * 500) +
-        100;
-=======
-        this.x = x;
-||||||| bd64fb6... Working with random speed
-        this.x = -100;
-=======
-        this.x = x;
->>>>>>> parent of bd64fb6... Working with random speed
-        this.y = y;
-<<<<<<< HEAD
-        this.speed = Math.floor(Math.random() * 3 +
-        2);
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-        this.speed = Math.floor(Math.random() * 500) +
-        100;
-=======
-        this.speed = Math.floor(Math.random() * 3 +
-        2);
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
->>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
-    }
-||||||| bd64fb6... Working with random speed
-        this.speed = speed;
-        this.speed = Math.floor(Math.random() * 250) + 100;
-    }
-=======
-        this.speed = speed;
-        }
-
->>>>>>> parent of bd64fb6... Working with random speed
 
     // Update the enemy's position, required method for game
+
     // Parameter: dt, a time delta between ticks
     update(dt) {
-<<<<<<< HEAD
-        let max_X = this.enemyX[1];
-        let max_Y = this.allEnemies;
-        this.x += this.speed * dt;
-         if (this.x > max_X) {
-             if (this.y < max_Y)
-            this.enemyReset();
-        }     // You should multiply any movement by the dt parameter
-||||||| bd64fb6... Working with random speed
-this.x += this.speed * dt;
-         if (this.x > 505) {
-            this.x = -100;
-            }
-            // You should multiply any movement by the dt parameter
-=======
-        this.speed = Math.floor(Math.random() * 100) + 100;
-        this.x += this.speed * dt;
-         if (this.x > 505) {
-             this.x = -100;
-         }
-            // You should multiply any movement by the dt parameter
->>>>>>> parent of bd64fb6... Working with random speed
+        // You should multiply any movement by the dt parameter
         // which will ensure the game runs at the same speed for
         // all computers.
-
+        this.x += this.speed * dt;
+        if (this.x > 500) {
+            this.x = -150;
+            this.speed = 100 + Math.floor(Math.random() * 250);
+        }
 
     }
 
     // Draw the enemy on the screen, required method for game
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }
+
+}
+}
+
+function checkCollisions(player, enemies) {
+    for (const enemy of enemies){
+        //(x*x) + (y*y) = (d*d);
+        const xDistance = player.x - enemy.x;
+        const yDistance = player.y - enemy.y;
+        const crtDistance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance));
+        if (crtDistance < 55) {
+            player.x = 202;
+            player.y = 405;
+            player.lives -= 1;
+        }
 
     }
 
+}
 
 // Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
 class Player {
-    constructor() {
-        this.playerX = [250, 402];
-        this.playerY = [0, 400];
+    constructor(x, y, speed = 83) {
+        this.x = x;
+        this.y = y;
         this.sprite = 'images/char-boy.png';
-        this.playerSpeed = [83, 100];
-        this.playerReset();
+        this.speed = speed;
+        this.win = 0;
+        this.level = 1;
+        this.lives = 3;
     }
-
-    playerReset() {
-        this.x = this.playerX[0];
-        this.y = this.playerY[1];
-
-    }
-
-
+    // This class requires an update(), render() and
+    // a handleInput() method.
     update(dt) {
-      const min_Y = this.playerY[0];
-
-      this.y += this.speed * dt;
-       if (this.y <= min_Y) {
-          this.playerReset();
+        if (this.y < 0) {
+            this.x = 205;
+            this.y = 380;
+            this.win += 1;
+            if (this.win >= 5 && this.level < 5) {
+                this.level += 1;
+                this.win -= 5;
+                enemyLevelUp();
+                //nest if for gemLevelup, create function for gems, like enemyLevelUp
+                }
+        } else if (this.y >= 390) {
+            this.y = 380;
+        } if (this.x > 500) {
+            this.x = 405;
+        } else if (this.x <= 0){
+            this.x = 5;
+        }
+        if (this.lives <= 0) {
+            endGame();
         }
     }
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
     }
-    handleInput(playerInput) {
-        if ('left' === playerInput) {
-            this.x -= this.speed /* this.xScale;*/
-            if (this.x <= 0) {
-                this.x += this.speed /* this.xScale;*/
-            }
-        }
-        if ('right' === playerInput) {
-            this.x += this.speed; /* this.xScale;*/
-            if (this.x > 400) {
-                this.x -= this.speed; /* this.xScale;*/
-            }
-        }
-        if ('up' === playerInput) {
-            this.y -= this.speed;
-        }
-        if ('down' === playerInput) {
-            this.y += this.speed;
-            if (this.y > 400) {
-                this.y -= this.speed;
-            }
+
+    handleInput(userKeyPress) {
+        switch (userKeyPress) {
+            case 'left':
+                this.x -= this.speed * 1.2;
+                break;
+            case 'up': this.y -= this.speed;
+                break;
+            case 'right': this.x += this.speed * 1.2;
+                break;
+            case 'down': this.y += this.speed;
+                break;
         }
     }
 
 }
-function checkCollisions() {
-  //if (this.enemyX === this.playerX && this.enemyY === this.playY){
-    //this.playerReset;
-  }
-
-
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-// Place the player object in a variable called player
-<<<<<<< HEAD
-<<<<<<< HEAD
-||||||| 08b4c71... Revert "instantiated allEnemies and Player"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
-/*need to add levels to change speeds, add bugs and gems.  BW*/
-||||||| bd64fb6... Working with random speed
-/*need to add levels to change speeds, add bugs and gems.  BW*/
-=======
->>>>>>> parent of bd64fb6... Working with random speed
-
-<<<<<<< HEAD
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
-const bug4 = new Enemy();
-const bug5 = new Enemy();
-const bug6 = new Enemy();
-
-||||||| bd64fb6... Working with random speed
-let bug1 = new Enemy(60 );
-let bug2 = new Enemy(140);
-let bug3 = new Enemy(220);
-let bug4 = new Enemy(140, 300);
-let bug5 = new Enemy(220, 25);
-let bug6 = new Enemy(60, 100);
-=======
->>>>>>> parent of bd64fb6... Working with random speed
-
-let bug1 = new Enemy(0, 60);
-let bug2 = new Enemy(-150, 140);
-let bug3 = new Enemy(-450, 220);
-//let bug4 = new Enemy(-405, 140, 300);
-//let bug5 = new Enemy(-330, 220, 25);
-//let bug6 = new Enemy(-225, 60, 100);
 
 
-
-
-<<<<<<< HEAD
-
-function max_X() {
-    for(const enemy_Y of allEnemies) {
-      return enemy_Y;
+const allEnemies = [];
+const newEnemy = [65, 145, 225];
+for (const enemy of newEnemy) {
+    allEnemies.push(new Enemy(-150, enemy));
     }
-    if (enemy_Y > 2){
-        this.playerReset;
-    }
+function enemyLevelUp() {
+    const randomLevelBug = Math.floor(Math.random() * 3);
+    allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));
+}
+
+function endGame() {
+    alert("You are a loser");
+    allEnemies = [];
+    player.speed = 0;
 
 }
 
+// Place the player object in a variable called player
+const player = new Player(205, 380);
 
-
-//***add player choice at start screen*** BW
-<<<<<<< HEAD
-||||||| 08b4c71... Revert "instantiated allEnemies and Player"
-||||||| 6ba337a... instantiated allEnemies and Player
-
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
-
-const allEnemies = [bug1, bug2, bug3];
-
-=======
-const allEnemies = [];
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
-
-const allEnemies = [bug1, bug2, bug3];
-
-=======
-const allEnemies = [];
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
-
-const allEnemies = [bug1, bug2, bug3];
-
-=======
-const allEnemies = [];
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-=======
-||||||| 6ba337a... instantiated allEnemies and Player
-
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
-
-const allEnemies = [bug1, bug2, bug3];
-
-=======
-const allEnemies = [];
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
-||||||| 6ba337a... instantiated allEnemies and Player
-
-const bug1 = new Enemy();
-const bug2 = new Enemy();
-const bug3 = new Enemy();
-
-const allEnemies = [bug1, bug2, bug3];
-
-=======
-const allEnemies = [];
->>>>>>> parent of 6ba337a... instantiated allEnemies and Player
->>>>>>> parent of 08b4c71... Revert "instantiated allEnemies and Player"
-const player = new Player();
-//***add header for score, lives and level
-||||||| bd64fb6... Working with random speed
-//***add player choice at start screen*** BW
-const player = new Player();
-//***add header for score, lives and level
-=======
->>>>>>> parent of bd64fb6... Working with random speed
-
-const allEnemies = [bug1, bug2, bug3];
-
-
-const player = new Player();
-
+//checkCollisions(player, allEnemies);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
-document.addEventListener('keyup', e => {
+document.addEventListener('keyup', ({keyCode}) => {
     const allowedKeys = {
         37: 'left',
         38: 'up',
@@ -397,5 +143,5 @@ document.addEventListener('keyup', e => {
         40: 'down'
     };
 
-    player.handleInput(allowedKeys[e.keyCode]);
+    player.handleInput(allowedKeys[keyCode]);
 });
