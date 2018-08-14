@@ -40,7 +40,7 @@ function checkCollisions(player, enemies) {
         const xDistance = player.x - enemy.x;
         const yDistance = player.y - enemy.y;
         const crtDistance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance));
-        if (crtDistance < 55) {
+        if (crtDistance < 65) {
             player.x = 202;
             player.y = 405;
             player.lives -= 1;
@@ -49,6 +49,32 @@ function checkCollisions(player, enemies) {
     }
 
 }
+
+class Gem {
+    constructor(x, y) {
+            // Variables applied to each of our //instances go here,
+            this.x = x;
+            this.y = y;
+            this.level = 1;
+            this.win = 0;
+        // we've provided one for you to get started
+        // The image/sprite for our enemies, this uses
+        // a helper we've provided to easily load images
+        this.sprite = ['images/Gem Green.png', 'images/Gem Blue.png', 'images/Gem Orange.png'];
+    }
+  update(dt) {
+    if (this.y < 0) {
+        this.x = 205;
+        this.y = 405;
+        this.win += 1;
+        if (this.win >= 5 && this.level < 5) {
+            this.level += 1;
+            this.win -= 5;
+            GemLevelUp();
+            //nest if for gemLevelup, create function for gems, like enemyLevelUp
+            }
+  }
+
 
 // Now write your own player class
 class Player {
@@ -60,13 +86,14 @@ class Player {
         this.win = 0;
         this.level = 1;
         this.lives = 3;
+        //this.gems = 0;
     }
     // This class requires an update(), render() and
     // a handleInput() method.
     update(dt) {
         if (this.y < 0) {
             this.x = 205;
-            this.y = 380;
+            this.y = 405;
             this.win += 1;
             if (this.win >= 5 && this.level < 5) {
                 this.level += 1;
@@ -74,12 +101,12 @@ class Player {
                 enemyLevelUp();
                 //nest if for gemLevelup, create function for gems, like enemyLevelUp
                 }
-        } else if (this.y >= 390) {
-            this.y = 380;
-        } if (this.x > 500) {
+        } else if (this.y > 405) {
+            this.y = 405;
+        } if (this.x > 405) {
             this.x = 405;
-        } else if (this.x <= 0){
-            this.x = 5;
+        } else if (this.x < 0){
+            this.x = 0;
         }
         if (this.lives <= 0) {
             endGame();
@@ -118,18 +145,31 @@ for (const enemy of newEnemy) {
     }
 function enemyLevelUp() {
     const randomLevelBug = Math.floor(Math.random() * 3);
-    allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));
+    allEnemies.push(new Enemy(200, newEnemy[randomLevelBug]));
 }
+
+const allGems = [];
+const newGemsY = [65, 145, 225];
+for (const newGems of newGemsY) {
+  allGems.push(new Gem(newGems))
+}
+const newGemsX = this.randomX();
+function gemLevelUp() {
+    const randomLevelGem = Math.floor(Math.random() * 3);
+    allGems.push(new Gems(200, newGems[gemLevelUp]));
+}
+
+
 
 function endGame() {
     alert("You are a loser");
-    allEnemies = [];
+    this.allEnemies = [];
     player.speed = 0;
 
 }
 
 // Place the player object in a variable called player
-const player = new Player(205, 380);
+const player = new Player(205, 405);
 
 //checkCollisions(player, allEnemies);
 
