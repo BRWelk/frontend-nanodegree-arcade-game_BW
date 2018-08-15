@@ -19,7 +19,7 @@ class Enemy {
         // which will ensure the game runs at the same speed for
         // all computers.
         this.x += this.speed * dt;
-        if (this.x > 500) {
+        if (this.x > 505) {
             this.x = -150;
             this.speed = 100 + Math.floor(Math.random() * 300);
         }
@@ -64,10 +64,10 @@ class Player {
     // a handleInput() method.
     update(dt) {
         if (this.y < -5) {
-            this.x = 203;
+            this.x = 252;
             this.y = 425;
             this.win += 1;
-            if (this.win >= 5 && this.level < 5) {
+            if (this.win >= 4 && this.level < 5) {
                 this.level += 1;
                 this.win -= 5;
                 enemyLevelUp();
@@ -104,7 +104,25 @@ class Player {
     }
 
 }
-
+///Gems, Rocks, Hearts, Keys, Stars
+/*class Treasures {
+    constructor(x, y) {
+        this.x = x;
+        this.y = y;
+        this.gems = ['images/Gem Blue.png', 'images/Gem Green.png', 'images/Gem Orange.png'];
+        this.heart = 'images/Heart.png';
+        this.key = 'images/Key.png';
+        this.rock = 'images/Rock.png';
+        this.star = 'images/Star.png';
+        this.Selector = 'images/Selector.png';
+        this.speed = speed;
+        this.win = 0;
+        this.level = 1;
+        this.lives = 3;
+    }
+    render() {//need to figure out if I can add mulitple objects to Resources.get
+        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    }*/
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -119,6 +137,13 @@ function enemyLevelUp() {
     const randomLevelBug = Math.floor(Math.random() * 3);
     allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));
 }
+
+/*const easterEggs = [];
+const newEggs = [images/Gem Blue.png]
+
+function gemLevelup() {
+
+}*/
 
 function endGame() {
     alert("You are a loser");
