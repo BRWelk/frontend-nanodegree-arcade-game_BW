@@ -1,11 +1,10 @@
-
 // Enemies our player must avoid
 class Enemy {
     constructor(x, y) {
-            // Variables applied to each of our //instances go here,
-            this.x = x;
-            this.y = y
-            this.speed = 100 + Math.floor(Math.random() * 250);
+        // Variables applied to each of our instances go here,
+        this.x = x;
+        this.y = y
+        this.speed = 100 + Math.floor(Math.random() * 250);
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -31,16 +30,16 @@ class Enemy {
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
-}
+    }
 }
 
 function checkCollisions(player, enemies) {
-    for (const enemy of enemies){
+    for (const enemy of enemies) {
         //(x*x) + (y*y) = (d*d);
         const xDistance = player.x - enemy.x;
         const yDistance = player.y - enemy.y;
         const crtDistance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance));
-        if (crtDistance < 55) {
+        if (crtDistance < 45) {
             player.x = 202;
             player.y = 405;
             player.lives -= 1;
@@ -73,12 +72,13 @@ class Player {
                 this.win -= 5;
                 enemyLevelUp();
                 //nest if for gemLevelup, create function for gems, like enemyLevelUp
-                }
+            }
         } else if (this.y >= 390) {
             this.y = 380;
-        } if (this.x > 500) {
+        }
+        if (this.x > 500) {
             this.x = 405;
-        } else if (this.x <= 0){
+        } else if (this.x <= 0) {
             this.x = 5;
         }
         if (this.lives <= 0) {
@@ -95,27 +95,28 @@ class Player {
             case 'left':
                 this.x -= this.speed * 1.2;
                 break;
-            case 'up': this.y -= this.speed;
+            case 'up':
+                this.y -= this.speed;
                 break;
-            case 'right': this.x += this.speed * 1.2;
+            case 'right':
+                this.x += this.speed * 1.2;
                 break;
-            case 'down': this.y += this.speed;
+            case 'down':
+                this.y += this.speed;
                 break;
         }
     }
 
 }
 
-
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
-
 
 const allEnemies = [];
 const newEnemy = [65, 145, 225];
 for (const enemy of newEnemy) {
     allEnemies.push(new Enemy(-150, enemy));
-    }
+}
 function enemyLevelUp() {
     const randomLevelBug = Math.floor(Math.random() * 3);
     allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));
