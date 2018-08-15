@@ -5,7 +5,7 @@ class Enemy {
             // Variables applied to each of our //instances go here,
             this.x = x;
             this.y = y
-            this.speed = 100 + Math.floor(Math.random() * 350);
+            this.speed = 100 + Math.floor(Math.random() * 350); //setting random speed for Enemy and any new Enemy(s) for sub classes
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -22,7 +22,7 @@ class Enemy {
         this.x += this.speed * dt;
         if (this.x > 500) {
             this.x = -150;
-            this.speed = 100 + Math.floor(Math.random() * 250);
+            this.speed = 100 + Math.floor(Math.random() * 350);//setting update parameters for enemy off screen(500) and new Enemy start coordinate(-150)
         }
 
     }
@@ -39,18 +39,19 @@ function checkCollisions(player, enemies) {
         //(x*x) + (y*y) = (d*d);
         const xDistance = player.x - enemy.x;
         const yDistance = player.y - enemy.y;
-        const crtDistance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance));
+        const crtDistance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance)); //Cartesian coordinates, allows player collision to be adjusted in the if statement below
+        // crtDistance is used to adjust collision point between enemy and player. Change the < # to expand or contract collision area
         if (crtDistance < 65) {
             player.x = 202;
             player.y = 405;
-            player.lives -= 1;
+            player.lives -= 1; //if a collision is detected, a single player life is deducted.
         }
 
     }
 
 }
 
-class Gem {
+/*class Gem {
     constructor(x, y) {
             // Variables applied to each of our //instances go here,
             this.x = x;
@@ -61,19 +62,7 @@ class Gem {
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = ['images/Gem Green.png', 'images/Gem Blue.png', 'images/Gem Orange.png'];
-    }
-  update(dt) {
-    if (this.y < 0) {
-        this.x = 205;
-        this.y = 405;
-        this.win += 1;
-        if (this.win >= 5 && this.level < 5) {
-            this.level += 1;
-            this.win -= 5;
-            GemLevelUp();
-            //nest if for gemLevelup, create function for gems, like enemyLevelUp
-            }
-  }
+    }*/ // working on easter eggs for the board. Will create a super class to handle easter egg sprites and sub classes to handle different types of rewards and the benefits of those rewards
 
 
 // Now write your own player class
