@@ -3,12 +3,8 @@ class Enemy {
     constructor(x, y) {
             // Variables applied to each of our //instances go here,
             this.x = x;
-            this.y = y
-<<<<<<< HEAD
+            this.y = y;
             this.speed = 100 + Math.floor(Math.random() * 350); //setting random speed for Enemy and any new Enemy(s) for sub classes
-=======
-            this.speed = 100 + Math.floor(Math.random() * 250);
->>>>>>> 965681276977e96761f86d9c4e71cae618280d06
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -25,11 +21,7 @@ class Enemy {
         this.x += this.speed * dt;
         if (this.x > 505) {
             this.x = -150;
-<<<<<<< HEAD
             this.speed = 100 + Math.floor(Math.random() * 350);//setting update parameters for enemy off screen(500) and new Enemy start coordinate(-150)
-=======
-            this.speed = 100 + Math.floor(Math.random() * 300);
->>>>>>> 965681276977e96761f86d9c4e71cae618280d06
         }
 
     }
@@ -41,21 +33,17 @@ class Enemy {
 }
 }
 
+
+
 function checkCollisions(player, enemies) {
     for (const enemy of enemies){
         //(x*x) + (y*y) = (d*d);
         const xDistance = player.x - enemy.x;
         const yDistance = player.y - enemy.y;
-<<<<<<< HEAD
         const crtDistance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance)); //Cartesian coordinates, allows player collision to be adjusted in the if statement below
         // crtDistance is used to adjust collision point between enemy and player. Change the < # to expand or contract collision area
         if (crtDistance < 65) {
             player.x = 202;
-=======
-        const crtDistance = Math.sqrt((xDistance * xDistance) + (yDistance * yDistance));
-        if (crtDistance < 55) {
-            player.x = 205;
->>>>>>> 965681276977e96761f86d9c4e71cae618280d06
             player.y = 405;
             player.lives -= 1; //if a collision is detected, a single player life is deducted.
         }
@@ -64,7 +52,6 @@ function checkCollisions(player, enemies) {
 
 }
 
-<<<<<<< HEAD
 /*class Gem {
     constructor(x, y) {
             // Variables applied to each of our //instances go here,
@@ -79,8 +66,6 @@ function checkCollisions(player, enemies) {
     }*/ // working on easter eggs for the board. Will create a super class to handle easter egg sprites and sub classes to handle different types of rewards and the benefits of those rewards
 
 
-=======
->>>>>>> 965681276977e96761f86d9c4e71cae618280d06
 // Now write your own player class
 class Player {
     constructor(x, y, speed = 83) {
@@ -96,7 +81,7 @@ class Player {
     // a handleInput() method.
     update(dt) {
         if (this.y < -5) {
-            this.x = 252;
+            this.x = 202;
             this.y = 425;
             this.win += 1;
             if (this.win >= 4 && this.level < 5) {
@@ -115,6 +100,10 @@ class Player {
         if (this.lives <= 0) {
             endGame();
         }
+    }
+
+    reset () {
+    this.update;
     }
 
     render() {
@@ -161,13 +150,13 @@ class Player {
 
 
 const allEnemies = [];
-const newEnemy = [60, 145, 227];
+const newEnemy = [60, 145, 227]; //starting coordinates on y axis for new Enemy
 for (const enemy of newEnemy) {
-    allEnemies.push(new Enemy(-150, enemy));
+    allEnemies.push(new Enemy(-150, enemy)); //pushing new Enemey to x -150 and random y set by for of loop from newEnemy const.
     }
 function enemyLevelUp() {
-    const randomLevelBug = Math.floor(Math.random() * 3);
-    allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));
+    const randomLevelBug = Math.floor(Math.random() * 3);// creating function to add bugs as levels win increases
+    allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));//same push as above, relating to new Enemy added for leve up
 }
 
 /*const easterEggs = [];
@@ -178,14 +167,15 @@ function gemLevelup() {
 }*/
 
 function endGame() {
-    alert("You are a loser");
-    allEnemies = [];
+    const allEnemies = [];
+    //const player = 0;
     player.speed = 0;
-
+  winModal();
 }
 
 // Place the player object in a variable called player
 const player = new Player(205, 405);
+const startGame = this.player;
 
 //checkCollisions(player, allEnemies);
 
@@ -201,3 +191,12 @@ document.addEventListener('keyup', ({keyCode}) => {
 
     player.handleInput(allowedKeys[keyCode]);
 });
+
+function winModal() {
+  var r = confirm(`You won!!! You had  moves and a star rating of
+ You completed the Match Game in seconds.
+ CLICK OK to play again?`);
+  if (r == true) {
+  reset();
+  }
+};
