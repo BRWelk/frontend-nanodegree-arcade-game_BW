@@ -1,6 +1,6 @@
 # Frontend-nanodegree-arcade-game
 
-Welcome to Brian's arcade game. This is a classic clone of a game that I grew up playing. I originally had a frog and some cars, but we have used a sprite and some bugs.
+Welcome to Brian's arcade game. This is a classic clone of a game that I grew up playing. It originally had a frog and some cars, but we have used a sprite and some bugs.
 
 ## TABLE OF CONTENTS
 
