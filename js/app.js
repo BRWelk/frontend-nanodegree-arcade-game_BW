@@ -1,4 +1,21 @@
 // Enemies our player must avoid
+
+
+function loadGameModal() {
+let lives = 4;
+if (lives > 3) {
+    var r = confirm(`Welcome to arcade game. Please use your arrow keys to navigate the player through the bugs. When you reach the water, the player will be reset to the start. Every 4 passes, another bug is added to the screen. Click OK to begin and GOOD LUCK!`);
+if (r === true) {
+    resetGame();
+    this.lives -= 1;
+} else {
+    endGame();
+}
+}
+}
+
+
+
 class Enemy {
     constructor(x, y, speed) {
         // Variables applied to each of our instances go here,
@@ -161,7 +178,7 @@ function initializeEnemies() {
 
 }
 
-initializeEnemies();
+
 
 function enemyLevelUp() {
     const randomLevelBug = Math.floor(Math.random() * 3); // creating function to add bugs as levels win increases
@@ -178,7 +195,7 @@ function endGame() {
 }
 
 function resetGame() {
-    allEnemies.push(new Enemy(-150, this.enemy));
+    initializeEnemies();
     player.x = 205;
     player.y = 405;
     this.win = 0;
@@ -210,3 +227,5 @@ document.addEventListener('keyup', ({keyCode}) => {
 
     player.handleInput(allowedKeys[keyCode]);
 });
+
+loadGameModal();
