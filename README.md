@@ -5,7 +5,7 @@ Welcome to Brian's arcade game. This is a classic clone of a game that I grew up
 ## TABLE OF CONTENTS
 
 * [Instructions](#instructions)
-* [Contributions](#Contributions)
+* [Contributions](#contributions)
 
 ## Instructions
 
