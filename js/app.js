@@ -195,21 +195,20 @@ function endGame() {
 }
 
 function resetGame() {
+
     initializeEnemies();
     player.x = 205;
     player.y = 405;
-    this.win = 0;
-    this.level = 1;
-    this.lives = 3;
+    player.win = 0;
+    player.level = 1;
     player.lives = 3;
-    initializeEnemies();
+
+    //initializeEnemies();
 }
 
 /* const easterEggs = [];
 const newEggs = [images/Gem Blue.png]
-
 function gemLevelup() {
-
 } */
 
 // Place the player object in a variable called player
