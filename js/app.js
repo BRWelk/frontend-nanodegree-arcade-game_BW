@@ -97,8 +97,7 @@ class Player {
             this.x = 0;
         } else if (this.lives <= 0) {
             if (this.lives !== -5)
-            var r = confirm(`Well done. CLICK OK to play again?`);
-            //console.log(r);
+                var r = confirm(`Well done. CLICK OK to play again!`);
             if (r === true) {
                 resetGame();
             } else {
@@ -156,9 +155,9 @@ let allEnemies = [];
 const yCoordinates = [60, 145, 227]; //starting coordinates on y axis for new Enemy
 function initializeEnemies() {
     allEnemies = [];
-for (const enemy of yCoordinates) {
-    allEnemies.push(new Enemy(-150, enemy)); //pushing new Enemey to x -150 and random y set by for of loop from yCoordinates const.
-}
+    for (const enemy of yCoordinates) {
+        allEnemies.push(new Enemy(-150, enemy)); //pushing new Enemey to x -150 and random y set by for of loop from yCoordinates const.
+    }
 
 }
 
@@ -211,7 +210,3 @@ document.addEventListener('keyup', ({keyCode}) => {
 
     player.handleInput(allowedKeys[keyCode]);
 });
-
-function winModal() {
-
-}
