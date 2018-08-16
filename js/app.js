@@ -1,6 +1,6 @@
 // Enemies our player must avoid
 class Enemy {
-    constructor(x, y) {
+    constructor(x, y, speed) {
             // Variables applied to each of our //instances go here,
             this.x = x;
             this.y = y;
@@ -96,15 +96,14 @@ class Player {
             this.x = 405;
         } else if (this.x <= 0){
             this.x = 0;
-        }
-        if (this.lives <= 0) {
-            endGame();
-        }
-    }
+        } else if (this.lives <= 0) {
+                winModal();
+            }
 
-    reset () {
-    this.update;
-    }
+        }
+
+
+
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -159,6 +158,20 @@ function enemyLevelUp() {
     allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));//same push as above, relating to new Enemy added for leve up
 }
 
+function endGame() {
+    allEnemies.pop(new Enemy());
+    player.x = 205;
+    player.y = 200;
+}
+
+function resetGame() {
+    allEnemies.push(new Enemy(-150, this.enemy));
+    player.update;
+}
+
+
+
+
 /*const easterEggs = [];
 const newEggs = [images/Gem Blue.png]
 
@@ -166,18 +179,9 @@ function gemLevelup() {
 
 }*/
 
-function endGame() {
-    const allEnemies = [];
-    //const player = 0;
-    player.speed = 0;
-  winModal();
-}
 
 // Place the player object in a variable called player
 const player = new Player(205, 405);
-const startGame = this.player;
-
-//checkCollisions(player, allEnemies);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -193,10 +197,12 @@ document.addEventListener('keyup', ({keyCode}) => {
 });
 
 function winModal() {
-  var r = confirm(`You won!!! You had  moves and a star rating of
- You completed the Match Game in seconds.
- CLICK OK to play again?`);
-  if (r == true) {
-  reset();
+  if (player.lives <= 0) {
+      endGame();
   }
-};
+  var r = confirm(`Well done. CLICK OK to play again?`);
+  if (r === true) {
+resetGame();
+} else {
+    endGame();
+}}
