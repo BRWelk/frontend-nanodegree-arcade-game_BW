@@ -1,8 +1,8 @@
 <h1>Frontend-nanodegree-arcade-game</h1>
-===============================
+
 Welcome to Brian's arcade game. This is a classic clone of a game that I grew up playing. I originally had a frog and some cars, but we have used a sprite and some bugs.
 
-TABLE OF CONTENTS
+<h2>TABLE OF CONTENTS</h2>
 
 Game play instructions:
 - At the bottom of these instructions, there will be a link. When you are done reading, you can click the link and your adventure will start.
