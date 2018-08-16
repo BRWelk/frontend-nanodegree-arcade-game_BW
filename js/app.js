@@ -1,10 +1,10 @@
 // Enemies our player must avoid
 class Enemy {
     constructor(x, y, speed) {
-            // Variables applied to each of our //instances go here,
-            this.x = x;
-            this.y = y;
-            this.speed = 100 + Math.floor(Math.random() * 350); //setting random speed for Enemy and any new Enemy(s) for sub classes
+        // Variables applied to each of our instances go here,
+        this.x = x;
+        this.y = y;
+        this.speed = 100 + Math.floor(Math.random() * 350); //setting random speed for Enemy and any new Enemy(s) for sub classes
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -21,7 +21,7 @@ class Enemy {
         this.x += this.speed * dt;
         if (this.x > 505) {
             this.x = -150;
-            this.speed = 100 + Math.floor(Math.random() * 350);//setting update parameters for enemy off screen(500) and new Enemy start coordinate(-150)
+            this.speed = 100 + Math.floor(Math.random() * 350); //setting update parameters for enemy off screen(500) and new Enemy start coordinate(-150)
         }
 
     }
@@ -30,13 +30,11 @@ class Enemy {
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 
+    }
 }
-}
-
-
 
 function checkCollisions(player, enemies) {
-    for (const enemy of enemies){
+    for (const enemy of enemies) {
         //(x*x) + (y*y) = (d*d);
         const xDistance = player.x - enemy.x;
         const yDistance = player.y - enemy.y;
@@ -63,8 +61,8 @@ function checkCollisions(player, enemies) {
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = ['images/Gem Green.png', 'images/Gem Blue.png', 'images/Gem Orange.png'];
-    }*/ // working on easter eggs for the board. Will create a super class to handle easter egg sprites and sub classes to handle different types of rewards and the benefits of those rewards
-
+    }*/
+// working on easter eggs for the board. Will create a super class to handle easter egg sprites and sub classes to handle different types of rewards and the benefits of those rewards
 
 // Now write your own player class
 class Player {
@@ -89,21 +87,25 @@ class Player {
                 this.win -= 5;
                 enemyLevelUp();
                 //nest if for gemLevelup, create function for gems, like enemyLevelUp
-                }
+            }
         } else if (this.y >= 405) {
             this.y = 405;
-        } if (this.x > 405) {
+        }
+        if (this.x > 405) {
             this.x = 405;
-        } else if (this.x <= 0){
+        } else if (this.x <= 0) {
             this.x = 0;
         } else if (this.lives <= 0) {
-                winModal();
+            if (this.lives !== -5)
+            var r = confirm(`Well done. CLICK OK to play again?`);
+            //console.log(r);
+            if (r === true) {
+                resetGame();
+            } else {
+                endGame();
             }
-
         }
-
-
-
+    }
 
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
@@ -114,11 +116,14 @@ class Player {
             case 'left':
                 this.x -= this.speed * 1.2;
                 break;
-            case 'up': this.y -= this.speed;
+            case 'up':
+                this.y -= this.speed;
                 break;
-            case 'right': this.x += this.speed * 1.2;
+            case 'right':
+                this.x += this.speed * 1.2;
                 break;
-            case 'down': this.y += this.speed;
+            case 'down':
+                this.y += this.speed;
                 break;
         }
     }
@@ -147,38 +152,49 @@ class Player {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 
+let allEnemies = [];
+const yCoordinates = [60, 145, 227]; //starting coordinates on y axis for new Enemy
+function initializeEnemies() {
+    allEnemies = [];
+for (const enemy of yCoordinates) {
+    allEnemies.push(new Enemy(-150, enemy)); //pushing new Enemey to x -150 and random y set by for of loop from yCoordinates const.
+}
 
-const allEnemies = [];
-const newEnemy = [60, 145, 227]; //starting coordinates on y axis for new Enemy
-for (const enemy of newEnemy) {
-    allEnemies.push(new Enemy(-150, enemy)); //pushing new Enemey to x -150 and random y set by for of loop from newEnemy const.
-    }
+}
+
+initializeEnemies();
+
 function enemyLevelUp() {
-    const randomLevelBug = Math.floor(Math.random() * 3);// creating function to add bugs as levels win increases
-    allEnemies.push(new Enemy(-150, newEnemy[randomLevelBug]));//same push as above, relating to new Enemy added for leve up
+    const randomLevelBug = Math.floor(Math.random() * 3); // creating function to add bugs as levels win increases
+    allEnemies.push(new Enemy(-150, yCoordinates[randomLevelBug])); //same push as above, relating to new Enemy added for leve up
 }
 
 function endGame() {
-    allEnemies.pop(new Enemy());
+    for (const enemy of allEnemies) {
+        allEnemies.pop(); //clear board of bugs
+    } //set player to middle of board
     player.x = 205;
     player.y = 200;
+    player.lives = -5;
 }
 
 function resetGame() {
     allEnemies.push(new Enemy(-150, this.enemy));
-    player.update;
+    player.x = 205;
+    player.y = 405;
+    this.win = 0;
+    this.level = 1;
+    this.lives = 3;
+    player.lives = 3;
+    initializeEnemies();
 }
 
-
-
-
-/*const easterEggs = [];
+/* const easterEggs = [];
 const newEggs = [images/Gem Blue.png]
 
 function gemLevelup() {
 
-}*/
-
+} */
 
 // Place the player object in a variable called player
 const player = new Player(205, 405);
@@ -197,12 +213,5 @@ document.addEventListener('keyup', ({keyCode}) => {
 });
 
 function winModal() {
-  if (player.lives <= 0) {
-      endGame();
-  }
-  var r = confirm(`Well done. CLICK OK to play again?`);
-  if (r === true) {
-resetGame();
-} else {
-    endGame();
-}}
+
+}
