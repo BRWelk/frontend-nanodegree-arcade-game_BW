@@ -25,4 +25,4 @@ CLICK THE LINK BELOW TO PLAY THE GAME!!!
 
 * [Brian's Udacity Arcade game - web link](http://htmlpreview.github.io/?https://github.com/BRWelk/frontend-nanodegree-arcade-game_BW/blob/master/index.html)
 
-* [Brian's Udacity Arcade game - local link](C://Desktop/frontend-nanodegree-arcade-game_BW/index.html)
+* [Brian's Udacity Arcade game - local link](index.html)
