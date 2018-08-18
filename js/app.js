@@ -1,21 +1,5 @@
 // Enemies our player must avoid
 
-
-function loadGameModal() {
-let lives = 4;
-if (lives > 3) {
-    var r = confirm(`Welcome to arcade game. Please use your arrow keys to navigate the player through the bugs. When you reach the water, the player will be reset to the start. Every 4 passes, another bug is added to the screen. Click OK to begin and GOOD LUCK!`);
-if (r === true) {
-    resetGame();
-    this.lives -= 1;
-} else {
-    endGame();
-}
-}
-}
-
-
-
 class Enemy {
     constructor(x, y, speed) {
         // Variables applied to each of our instances go here,
@@ -73,13 +57,16 @@ function checkCollisions(player, enemies) {
             this.x = x;
             this.y = y;
             this.level = 1;
-            this.win = 0;
+            this.pass = 0;
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
         this.sprite = ['images/Gem Green.png', 'images/Gem Blue.png', 'images/Gem Orange.png'];
     }*/
 // working on easter eggs for the board. Will create a super class to handle easter egg sprites and sub classes to handle different types of rewards and the benefits of those rewards
+
+
+
 
 // Now write your own player class
 class Player {
@@ -88,20 +75,42 @@ class Player {
         this.y = y;
         this.sprite = 'images/char-boy.png';
         this.speed = speed;
-        this.win = 0;
+        this.pass = 0;
         this.level = 1;
         this.lives = 3;
     }
+
+     winModal() {
+            this.passes = this.pass;
+            this.passes += 1;
+            const completedLevels = this.level - 1;
+            if (this.lives < 0 || this.level > 5) {
+                if (this.level < 1) {
+                    this.passes;
+                    this.level;
+
+                } else if (this.level >= 1) {
+                    this.passes = (this.completedLevels * 4) + this.pass;
+                            }
+
+                var r = confirm(`Well done. You crossed the board ${this.passes} times and completed ${completedLevels} levels.  CLICK OK to play again!`);
+            } if (r === true) {
+                resetGame();
+            } else {
+                endGame();
+            }
+        }
+
     // This class requires an update(), render() and
     // a handleInput() method.
     update(dt) {
         if (this.y < -5) {
             this.x = 202;
             this.y = 425;
-            this.win += 1;
-            if (this.win >= 4 && this.level < 5) {
+            this.pass += 1;
+            if (this.pass >= 4 && this.level < 5) {
                 this.level += 1;
-                this.win -= 5;
+                this.pass = 0;
                 enemyLevelUp();
                 //nest if for gemLevelup, create function for gems, like enemyLevelUp
             }
@@ -113,13 +122,7 @@ class Player {
         } else if (this.x <= 0) {
             this.x = 0;
         } else if (this.lives <= 0) {
-            if (this.lives !== -5)
-                var r = confirm(`Well done. CLICK OK to play again!`);
-            if (r === true) {
-                resetGame();
-            } else {
-                endGame();
-            }
+            this.winModal();
         }
     }
 
@@ -157,7 +160,7 @@ class Player {
         this.star = 'images/Star.png';
         this.Selector = 'images/Selector.png';
         this.speed = speed;
-        this.win = 0;
+        this.pass = 0;
         this.level = 1;
         this.lives = 3;
     }
@@ -172,16 +175,14 @@ let allEnemies = [];
 const yCoordinates = [60, 145, 227]; //starting coordinates on y axis for new Enemy
 function initializeEnemies() {
     allEnemies = [];
-    for (const enemy of yCoordinates) {
-        allEnemies.push(new Enemy(-150, enemy)); //pushing new Enemey to x -150 and random y set by for of loop from yCoordinates const.
+    for (const yPosition of yCoordinates) {
+        allEnemies.push(new Enemy(-150, yPosition)); //pushing new Enemey to x -150 and random y set by for of loop from yCoordinates const.
     }
 
 }
 
-
-
 function enemyLevelUp() {
-    const randomLevelBug = Math.floor(Math.random() * 3); // creating function to add bugs as levels win increases
+    const randomLevelBug = Math.floor(Math.random() * 3); // creating function to add bugs as levels passes increases
     allEnemies.push(new Enemy(-150, yCoordinates[randomLevelBug])); //same push as above, relating to new Enemy added for leve up
 }
 
@@ -192,18 +193,33 @@ function endGame() {
     player.x = 205;
     player.y = 200;
     player.lives = -5;
+
 }
 
-function resetGame() {
 
+function resetGame() {
     initializeEnemies();
     player.x = 205;
     player.y = 405;
-    player.win = 0;
+    player.pass = 0;
     player.level = 1;
     player.lives = 3;
+}
 
-    //initializeEnemies();
+
+
+//Loading modal at begining of game, giving player a quick overview on how to play.
+function loadGameModal() {
+    let lives = 4;
+    if (lives > 3) {
+        var r = confirm(`Welcome to arcade game. Please use your arrow keys to navigate the player through the bugs. When you reach the water, the player will be reset to the start. Every 4 passes, another bug is added to the screen. Click OK to begin and GOOD LUCK!`);
+        if (r === true) {
+            resetGame();
+            this.lives -= 1;
+        } else {
+            endGame();
+        }
+    }
 }
 
 /* const easterEggs = [];
