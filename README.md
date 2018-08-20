@@ -4,10 +4,10 @@ Welcome to Brian's arcade game. This is a classic clone of a game that I grew up
 
 ## TABLE OF CONTENTS
 
-* [Game Play Instructions](#game play instructions)
+* [Game Play Instructions](#gameplayinstructions)
 * [Contributions](#contributions)
 
-## Instructions
+## Game Play Instructions
 
 * At the bottom of these instructions, there will be a link. When you are done reading, you can click the link and your adventure will start.
 * Click the link
