@@ -21,22 +21,10 @@ Welcome to Brian's arcade game. This is a classic clone of a game that I grew up
 ## Local Play Instructions
 * Click on this link to download the file to your computer [Brian's Udacity Arcade game - local link](https://github.com/BRWelk/frontend-nanodegree-arcade-game_BW/archive/master.zip)
 * Once downloaded, you will need to extract the zip file to Desktop.
-* After you have extracted the file, you will need to open the file folder and locate the index.html file. Double click the HTML file and it will open up in your browser. 
+* After you have extracted the file, you will need to open the file folder and locate the index.html file. Double click the HTML file and it will open up in your browser.
 
 ## Demo Play Instructions
 * Click this link to load the game in demo mode. It will link to the the Github server [Brian's Udacity Arcade game - Demo link](http://htmlpreview.github.io/?https://github.com/BRWelk/frontend-nanodegree-arcade-game_BW/blob/master/index.html)
 
-
-
-
-
-
-
 ## Contributions
-
 I hope you have as much fun playing this arcade game as I did creating it. ***I would like to thank Zachary Welk (my son) for his guidance, trouble shooting and patience helping me learn.*** This is pretty awesome. I think I am going to make a game where some aliens move back and forth across the screen and my mobile lazer base shoots them....if anyone has an idea for a name for that game, let me know.
-
-
-
-
-
