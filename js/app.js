@@ -5,7 +5,7 @@ class Enemy {
         // Variables applied to each of our instances go here,
         this.x = x;
         this.y = y;
-        this.speed = 100 + Math.floor(Math.random() * 350); //setting random speed for Enemy and any new Enemy(s) for sub classes
+        this.speed = 100 + Math.floor(Math.random() * 250); //setting random speed for Enemy and any new Enemy(s) for sub classes
         // we've provided one for you to get started
         // The image/sprite for our enemies, this uses
         // a helper we've provided to easily load images
@@ -22,7 +22,7 @@ class Enemy {
         this.x += this.speed * dt;
         if (this.x > 505) {
             this.x = -150;
-            this.speed = 100 + Math.floor(Math.random() * 350); //setting update parameters for enemy off screen(500) and new Enemy start coordinate(-150)
+            this.speed = 100 + Math.floor(Math.random() * 250); //setting update parameters for enemy off screen(500) and new Enemy start coordinate(-150)
         }
 
     }
@@ -65,9 +65,6 @@ function checkCollisions(player, enemies) {
     }*/
 // working on easter eggs for the board. Will create a super class to handle easter egg sprites and sub classes to handle different types of rewards and the benefits of those rewards
 
-
-
-
 // Now write your own player class
 class Player {
     constructor(x, y, speed = 83) {
@@ -76,30 +73,9 @@ class Player {
         this.sprite = 'images/char-boy.png';
         this.speed = speed;
         this.pass = 0;
-        this.level = 1;
+        this.level = 0;
         this.lives = 3;
     }
-
-     winModal() {
-            this.passes = this.pass;
-            this.passes += 1;
-            const completedLevels = this.level - 1;
-            if (this.lives < 0 || this.level > 5) {
-                if (this.level < 1) {
-                    this.passes;
-                    this.level;
-
-                } else if (this.level >= 1) {
-                    this.passes = (this.completedLevels * 4) + this.pass;
-                            }
-
-                var r = confirm(`Well done. You crossed the board ${this.passes} times and completed ${completedLevels} levels.  CLICK OK to play again!`);
-            } if (r === true) {
-                resetGame();
-            } else {
-                endGame();
-            }
-        }
 
     // This class requires an update(), render() and
     // a handleInput() method.
@@ -108,21 +84,24 @@ class Player {
             this.x = 202;
             this.y = 425;
             this.pass += 1;
-            if (this.pass >= 4 && this.level < 5) {
+            if (this.pass > 2 && this.level < 6) {
                 this.level += 1;
                 this.pass = 0;
                 enemyLevelUp();
                 //nest if for gemLevelup, create function for gems, like enemyLevelUp
             }
-        } else if (this.y >= 405) {
+        }
+        if (this.y >= 405) {
             this.y = 405;
         }
         if (this.x > 405) {
             this.x = 405;
-        } else if (this.x <= 0) {
+        }
+        if (this.x <= 0) {
             this.x = 0;
-        } else if (this.lives <= 0) {
-            this.winModal();
+        }
+        if (this.lives <= 0 || this.level > 4) {
+            winModal();
         }
     }
 
@@ -181,41 +160,64 @@ function initializeEnemies() {
 
 }
 
+function winModal() {
+    this.lives = player.lives;
+    this.level = player.level;
+    this.pass = player.pass;
+    if (player.lives < 1 || player.level > 3) {
+
+        if (this.level <= 0) {
+            this.level;
+            this.pass;
+        } else if (this.level > 0) {
+
+            this.level;
+            this.pass = (this.level * 3) + this.pass;
+
+        }
+        var r = confirm(`Well done. You crossed the board ${this.pass} times and completed ${this.level} levels.  CLICK OK to play again!`);
+    }
+    if (r === true) {
+        resetGame();
+    } else {
+        endGame();
+    }
+
+}
+
 function enemyLevelUp() {
     const randomLevelBug = Math.floor(Math.random() * 3); // creating function to add bugs as levels passes increases
     allEnemies.push(new Enemy(-150, yCoordinates[randomLevelBug])); //same push as above, relating to new Enemy added for leve up
 }
 
 function endGame() {
-    for (const enemy of allEnemies) {
-        allEnemies.pop(); //clear board of bugs
-    } //set player to middle of board
+    //clear board of bugs
+    allEnemies = [];
+    enemy = [];
+
+    //set player to middle of board
     player.x = 205;
     player.y = 200;
     player.lives = -5;
-
 }
-
 
 function resetGame() {
     initializeEnemies();
     player.x = 205;
     player.y = 405;
     player.pass = 0;
-    player.level = 1;
+    player.level = 0;
     player.lives = 3;
 }
 
-
-
 //Loading modal at begining of game, giving player a quick overview on how to play.
 function loadGameModal() {
-    let lives = 4;
-    if (lives > 3) {
-        var r = confirm(`Welcome to arcade game. Please use your arrow keys to navigate the player through the bugs. When you reach the water, the player will be reset to the start. Every 4 passes, another bug is added to the screen. Click OK to begin and GOOD LUCK!`);
+    this.lives = player.lives;
+    if (this.lives === 3) {
+        const r = confirm(`Welcome to arcade game. Please use your arrow keys to navigate the player through the bugs. When you reach the water, the player will be reset to the start. Every 3 passes, another bug is added to the screen. Click OK to begin and GOOD LUCK!`);
         if (r === true) {
             resetGame();
-            this.lives -= 1;
+
         } else {
             endGame();
         }
