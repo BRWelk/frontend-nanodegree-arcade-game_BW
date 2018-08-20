@@ -1,5 +1,4 @@
 // Enemies our player must avoid
-
 class Enemy {
     constructor(x, y, speed) {
         // Variables applied to each of our instances go here,
@@ -13,7 +12,6 @@ class Enemy {
     }
 
     // Update the enemy's position, required method for game
-
     // Parameter: dt, a time delta between ticks
     update(dt) {
         // You should multiply any movement by the dt parameter
@@ -24,13 +22,11 @@ class Enemy {
             this.x = -150;
             this.speed = 100 + Math.floor(Math.random() * 250); //setting update parameters for enemy off screen(500) and new Enemy start coordinate(-150)
         }
-
     }
 
     // Draw the enemy on the screen, required method for game
     render() {
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-
     }
 }
 
@@ -46,24 +42,8 @@ function checkCollisions(player, enemies) {
             player.y = 405;
             player.lives -= 1; //if a collision is detected, a single player life is deducted.
         }
-
     }
-
 }
-
-/*class Gem {
-    constructor(x, y) {
-            // Variables applied to each of our //instances go here,
-            this.x = x;
-            this.y = y;
-            this.level = 1;
-            this.pass = 0;
-        // we've provided one for you to get started
-        // The image/sprite for our enemies, this uses
-        // a helper we've provided to easily load images
-        this.sprite = ['images/Gem Green.png', 'images/Gem Blue.png', 'images/Gem Orange.png'];
-    }*/
-// working on easter eggs for the board. Will create a super class to handle easter egg sprites and sub classes to handle different types of rewards and the benefits of those rewards
 
 // Now write your own player class
 class Player {
@@ -125,27 +105,7 @@ class Player {
                 break;
         }
     }
-
 }
-///Gems, Rocks, Hearts, Keys, Stars
-/*class Treasures {
-    constructor(x, y) {
-        this.x = x;
-        this.y = y;
-        this.gems = ['images/Gem Blue.png', 'images/Gem Green.png', 'images/Gem Orange.png'];
-        this.heart = 'images/Heart.png';
-        this.key = 'images/Key.png';
-        this.rock = 'images/Rock.png';
-        this.star = 'images/Star.png';
-        this.Selector = 'images/Selector.png';
-        this.speed = speed;
-        this.pass = 0;
-        this.level = 1;
-        this.lives = 3;
-    }
-    render() {//need to figure out if I can add mulitple objects to Resources.get
-        ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    }*/
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -157,7 +117,6 @@ function initializeEnemies() {
     for (const yPosition of yCoordinates) {
         allEnemies.push(new Enemy(-150, yPosition)); //pushing new Enemey to x -150 and random y set by for of loop from yCoordinates const.
     }
-
 }
 
 function winModal() {
@@ -165,15 +124,12 @@ function winModal() {
     this.level = player.level;
     this.pass = player.pass;
     if (player.lives < 1 || player.level > 3) {
-
         if (this.level <= 0) {
             this.level;
             this.pass;
         } else if (this.level > 0) {
-
             this.level;
             this.pass = (this.level * 3) + this.pass;
-
         }
         var r = confirm(`Well done. You crossed the board ${this.pass} times and completed ${this.level} levels.  CLICK OK to play again!`);
     }
@@ -182,7 +138,6 @@ function winModal() {
     } else {
         endGame();
     }
-
 }
 
 function enemyLevelUp() {
@@ -194,7 +149,6 @@ function endGame() {
     //clear board of bugs
     allEnemies = [];
     enemy = [];
-
     //set player to middle of board
     player.x = 205;
     player.y = 200;
@@ -217,17 +171,11 @@ function loadGameModal() {
         const r = confirm(`Welcome to arcade game. Please use your arrow keys to navigate the player through the bugs. When you reach the water, the player will be reset to the start. Every 3 passes, another bug is added to the screen. Click OK to begin and GOOD LUCK!`);
         if (r === true) {
             resetGame();
-
         } else {
             endGame();
         }
     }
 }
-
-/* const easterEggs = [];
-const newEggs = [images/Gem Blue.png]
-function gemLevelup() {
-} */
 
 // Place the player object in a variable called player
 const player = new Player(205, 405);
